@@ -75,11 +75,11 @@ app.delete('/api/articulos/:id', (request,response)=> {
  })*/
       import express from "express";
       import {routerArticulo} from "./routes/articulosRoutes.js";
-      import { ArticuloModel } from "./models/ArticuloDB.js";
+      import { Articulo } from "./models/Articulo.js"
       import { routerCliente } from "./routes/clientesRoutes.js";
-      import { ClienteModel } from "./models/ClienteDB.js";
+      import { Cliente} from "./models/Cliente.js"
       import { routerUsuario } from "./routes/usuariosRoutes.js";
-      import { UsuarioModel } from "./models/UsuariosDB.js";
+      import { Usuario } from "./models/Usuario.js"
       import { conexion } from "./helpers/conexion.js";
       import cors from "cors";
       
@@ -90,9 +90,9 @@ app.delete('/api/articulos/:id', (request,response)=> {
       const PORT=3030;
       conexion();
       app.use(cors({ origin: 'http://localhost:5173' }));
-      app.use('/api/articulos',routerArticulo(ArticuloModel));
-      app.use('/api/clientes', routerCliente(ClienteModel));
-      app.use('/api/usuarios', routerUsuario(UsuarioModel));
+      app.use('/api/articulos',routerArticulo(Articulo));
+      app.use('/api/clientes', routerCliente(Cliente));
+      app.use('/api/usuarios', routerUsuario(Usuario));
       app.listen(PORT,()=>{
            console.log("Servidor a la espera");
       })
