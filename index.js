@@ -87,9 +87,9 @@ app.delete('/api/articulos/:id', (request,response)=> {
       const app= express();
       
       app.use(express.json());
-      const PORT=3030;
+      const PORT= process.env.PORT || 3030;
       conexion();
-      app.use(cors({ origin: 'http://localhost:5173' }));
+      //app.use(cors({ origin: 'http://localhost:5173' }));
       app.use('/api/articulos',routerArticulo(Articulo));
       app.use('/api/clientes', routerCliente(Cliente));
       app.use('/api/usuarios', routerUsuario(Usuario));
