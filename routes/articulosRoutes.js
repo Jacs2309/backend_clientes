@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { ArticuloController } from "../Controllers/ArticuloController.js";
+import { ArticuloController } from "../controllers/ArticuloController.js"
 
 export const routerArticulo = (modelo)=>{
     const controlador = new ArticuloController(modelo);
